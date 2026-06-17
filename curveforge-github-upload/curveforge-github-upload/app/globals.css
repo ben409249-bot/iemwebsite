@@ -1,0 +1,263 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background: #06060a;
+  color: #fff;
+}
+
+input { font-family: inherit; outline: none; }
+input::placeholder { color: rgba(255,255,255,0.4); }
+button { outline: none; }
+::selection { background: rgba(139,140,255,0.35); }
+::-webkit-scrollbar { width: 9px; height: 9px; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.14); border-radius: 9px; }
+::-webkit-scrollbar-track { background: transparent; }
+
+/* ─── Keyframes ──────────────────────────────────────────────────────────── */
+
+@keyframes floatGlow {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(4%, 5%) scale(1.06); }
+}
+
+@keyframes floatGlow2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(-3%, 4%) scale(1.08); }
+  66% { transform: translate(5%, -2%) scale(0.95); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes eqbar {
+  0%, 100% { transform: scaleY(0.38); }
+  50% { transform: scaleY(1); }
+}
+
+@keyframes drawIn {
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes barGrow {
+  from { transform: scaleY(0); }
+  to { transform: scaleY(1); }
+}
+
+@keyframes dropIn {
+  from { opacity: 0; transform: translateY(-8px) scale(0.985); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes pulseDot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.4); opacity: 0.65; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -160% 0; }
+  100% { background-position: 260% 0; }
+}
+
+@keyframes scan {
+  0%   { transform: translateX(-120px); opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { transform: translateX(calc(100vw + 120px)); opacity: 0; }
+}
+
+@keyframes borderGlow {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+@keyframes ping {
+  0%   { transform: scale(1); opacity: 0.6; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+
+@keyframes aurora {
+  0%, 100% { filter: hue-rotate(0deg) brightness(1); }
+  50% { filter: hue-rotate(30deg) brightness(1.08); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 24px rgba(108,120,240,0.4), 0 6px 20px rgba(108,120,240,0.25); }
+  50% { box-shadow: 0 0 44px rgba(160,107,240,0.65), 0 8px 28px rgba(108,120,240,0.4); }
+}
+
+@keyframes filterRowIn {
+  from { opacity: 0; transform: translateX(-8px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@keyframes numberPop {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(1.18); }
+  100% { transform: scale(1); }
+}
+
+/* ─── Utility classes ─────────────────────────────────────────────────────── */
+
+.animate-fadeup   { animation: fadeUp 0.5s ease both; }
+.animate-fadeup-1 { animation: fadeUp 0.5s 0.05s ease both; }
+.animate-fadeup-2 { animation: fadeUp 0.5s 0.10s ease both; }
+.animate-fadeup-3 { animation: fadeUp 0.5s 0.15s ease both; }
+.animate-fadeup-4 { animation: fadeUp 0.5s 0.20s ease both; }
+.animate-fadeup-5 { animation: fadeUp 0.5s 0.25s ease both; }
+.animate-fadeup-6 { animation: fadeUp 0.5s 0.30s ease both; }
+.animate-fadeup-7 { animation: fadeUp 0.6s 0.40s ease both; }
+
+.animate-float-glow   { animation: floatGlow 15s ease-in-out infinite; }
+.animate-float-glow-r { animation: floatGlow 19s ease-in-out infinite reverse; }
+.animate-float-glow-2 { animation: floatGlow2 22s ease-in-out infinite; }
+.animate-aurora       { animation: aurora 12s ease-in-out infinite; }
+
+.eq-bar-1 { transform-origin: bottom; animation: eqbar 1s ease-in-out infinite; }
+.eq-bar-2 { transform-origin: bottom; animation: eqbar 1s ease-in-out 0.2s infinite; }
+.eq-bar-3 { transform-origin: bottom; animation: eqbar 1s ease-in-out 0.4s infinite; }
+
+.shimmer-text {
+  background: linear-gradient(90deg, #ffffff, #cdbcff, #9bbcff, #ffffff);
+  background-size: 250% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 5s linear infinite;
+}
+
+.pulse-dot      { animation: pulseDot 2s ease-in-out infinite; }
+.pulse-dot-slow { animation: pulseDot 2.4s ease-in-out infinite; }
+
+.ping-ring {
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 2px solid #4ade80;
+  animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+  pointer-events: none;
+}
+
+/* ─── Glass surfaces ─────────────────────────────────────────────────────── */
+
+.glass-card {
+  background: linear-gradient(165deg, rgba(18,18,30,0.82), rgba(12,12,22,0.88));
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 24px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.10);
+  transition: box-shadow 0.22s ease;
+}
+
+@media (hover: hover) {
+  .glass-card:hover {
+    box-shadow: 0 14px 50px rgba(0,0,0,0.55), 0 0 0 1px rgba(160,107,240,0.2), inset 0 1px 0 rgba(255,255,255,0.22);
+  }
+}
+
+.glass-header {
+  background: linear-gradient(165deg, rgba(255,255,255,0.09), rgba(255,255,255,0.035));
+  backdrop-filter: blur(12px) saturate(155%);
+  -webkit-backdrop-filter: blur(12px) saturate(155%);
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 22px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.18);
+  position: relative;
+  overflow: hidden;
+}
+
+/* scanning shimmer across the header */
+.glass-header::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0; left: 0;
+  width: 120px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.04), transparent);
+  animation: scan 7s linear infinite;
+  pointer-events: none;
+}
+
+.drop-in { animation: dropIn 0.22s cubic-bezier(0.4, 0, 0.2, 1); }
+
+.filter-row-in { animation: filterRowIn 0.28s ease both; }
+
+.glow-btn {
+  animation: glowPulse 3s ease-in-out infinite;
+}
+
+/* ─── Performance mode (active while a slider is being dragged) ──────────── */
+/* Backdrop-filter blur + many infinite animations + composited shadows is the
+   biggest source of slider lag. Pause/strip all of it during drag — restored
+   the instant the user releases. */
+body.is-dragging .animate-float-glow,
+body.is-dragging .animate-float-glow-r,
+body.is-dragging .animate-float-glow-2,
+body.is-dragging .animate-aurora,
+body.is-dragging .shimmer-text,
+body.is-dragging .pulse-dot,
+body.is-dragging .pulse-dot-slow,
+body.is-dragging .ping-ring,
+body.is-dragging .glow-btn,
+body.is-dragging .eq-bar-1,
+body.is-dragging .eq-bar-2,
+body.is-dragging .eq-bar-3,
+body.is-dragging .glass-header::after {
+  animation-play-state: paused !important;
+}
+body.is-dragging .glass-header {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+body.is-dragging .glass-card {
+  transition: none !important;
+}
+
+/* ─── Responsive ─────────────────────────────────────────────────────────── */
+
+@media (max-width: 960px) {
+  .generator-grid {
+    grid-template-columns: minmax(0,1fr) !important;
+  }
+}
+
+/* Phone: tighten paddings, shrink the header chips, and let the audio preview
+   wrap cleanly. */
+@media (max-width: 640px) {
+  .glass-header {
+    flex-wrap: wrap;
+    gap: 10px !important;
+  }
+  .glass-card {
+    border-radius: 18px;
+  }
+}
+
+/* ─── Reduced motion ─────────────────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float-glow,
+  .animate-float-glow-r,
+  .animate-float-glow-2,
+  .animate-aurora,
+  .eq-bar-1, .eq-bar-2, .eq-bar-3,
+  .shimmer-text,
+  .pulse-dot, .pulse-dot-slow,
+  .ping-ring,
+  .glow-btn,
+  .glass-header::after {
+    animation: none;
+  }
+}
